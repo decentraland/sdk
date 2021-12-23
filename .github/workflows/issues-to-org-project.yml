@@ -13,6 +13,6 @@ jobs:
       uses: srggrs/assign-one-project-github-action@1.2.1
       if: github.event.action == 'opened'
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        MY_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         project: 'https://github.com/orgs/decentraland/projects/20'
