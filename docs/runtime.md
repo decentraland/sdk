@@ -1,3 +1,7 @@
+---
+title: "Metaverse runtime"
+slug: "/contributor/sdk/diagrams/metaverse-runtime"
+---
 
 # The Metaverse Runtime
 

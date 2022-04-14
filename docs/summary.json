@@ -1,0 +1,18 @@
+{
+    "contributor": [
+        {
+            "name": "SDK",
+            "children": [
+                {
+                    "name": "Diagrams",
+                    "children": [
+                        {
+                            "name": "Metaverse runtime",
+                            "slug": "/contributor/sdk/diagrams/metaverse-runtime"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
