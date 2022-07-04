@@ -11,10 +11,12 @@ entity of the scenes, that entity is the parent of all the entities by default.
 ## List of static entities per scene
 
 - `RootEntity = 0` it is the root of the scene
-  - The root entity has the scene metadata (scene.json) included as a `SceneInformation`
+  - The `SceneInformation` component (READ ONLY) of the root entity has the scene metadata (scene.json), the content mappings and the scene id
   - The `ForeginEntitiesFrom { names: string[] }` component is set from the scene itself and it is used to signal the renderer about Foregin entity replication policies
   - The `ForeginEntitiesReservation { name: string, from: Entity, to: Entity }` component is used to signal the renderer (or other actors) that this scene CAN share its entities as ForeginEntities.
-  - 
+  - The `LoadingState { status = LOADING/RUNNING/PAUSED }` component is set by the renderer
+  - The `CommsState` component is set by kernel and used to query information about the current Comms connection (including realm)
+
 - `PlayerEntity = 1` represents the current player avatar
   - The `Transform` component is READ/WRITE from the scene
   - The `PlayerPortableExperiences` component (READ ONLY) contains the information about the current portable experiences run by the user
@@ -22,8 +24,10 @@ entity of the scenes, that entity is the parent of all the entities by default.
   - The (internal) `AvatarShape` component (READ ONLY) contains information about the wearables, hair, eyes and skin colors, and the equiped wearables
 
 - `CameraEntity = 2`
-  - The Transform component is READ ONLY from the scene
-  - There is a special `CameraMode { mode = ThirdPerson/FirstPerson }` component used to get the current camera mode
+  - The `Transform` component is READ ONLY from the scene
+  - The `PointerLocked` component (READ ONLY) presence signals the status of the pointer-locking of the renderer.
+  - The `WindowIdle` component (READ ONLY) presence signals if the renderer is in background-mode or it is actively rendering.
+  - The `CameraMode { mode = ThirdPerson/FirstPerson }` component used to get the current camera mode, it is only set from the Renderer.
 
 ## Foregin entities in scenes
 
