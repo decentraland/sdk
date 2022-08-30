@@ -12,8 +12,8 @@ entity of the scenes, that entity is the parent of all the entities by default.
 
 - `RootEntity = 0` it is the root of the scene
   - The `SceneInformation` component (READ ONLY) of the root entity has the scene metadata (scene.json), the content mappings and the scene id
-  - The `ForeginEntitiesFrom { names: string[] }` component is set from the scene itself and it is used to signal the renderer about Foregin entity replication policies
-  - The `ForeginEntitiesReservation { name: string, from: Entity, to: Entity }` component is used to signal the renderer (or other actors) that this scene CAN share its entities as ForeginEntities.
+  - The `ForeignEntitiesFrom { names: string[] }` component is set from the scene itself and it is used to signal the renderer about Foreign entity replication policies
+  - The `ForeignEntitiesReservation { name: string, from: Entity, to: Entity }` component is used to signal the renderer (or other actors) that this scene CAN share its entities as ForeignEntities.
   - The `LoadingState { status = LOADING/RUNNING/PAUSED }` component is set by the renderer
   - The `CommsState` component is set by kernel and used to query information about the current Comms connection (including realm)
 
@@ -29,7 +29,7 @@ entity of the scenes, that entity is the parent of all the entities by default.
   - The `WindowIdle` component (READ ONLY) presence signals if the renderer is in background-mode or it is actively rendering.
   - The `CameraMode { mode = ThirdPerson/FirstPerson }` component used to get the current camera mode, it is only set from the Renderer.
 
-## Foregin entities in scenes
+## Foreign entities in scenes
 
 There are some cases in which we can connect scenes and get the entities and component information from other scenes, this
 can be used for a variety of scenarios, but for a practical approach we are focusing now in the GlobalAvatarScene.
@@ -41,8 +41,8 @@ This is so, to leverage the performance of the scenes and to not add extra movin
 of rendering scenes and UIs only.
 
 To extract the position or shape information of other avatars from any other scene, we should have a mechanism in place to either: 1) query other scene entities
-or 2) having references/foregin entities replicated to all scenes.
+or 2) having references/foreign entities replicated to all scenes.
 
 We decided to do the 2nd to leverage all the CRDT messaging.
 
-To prevent Entity IDs collisions, the scene that will own the foregin entities must reserve a slice of IDs at the moment of initialization (via RootEntity component).
+To prevent Entity IDs collisions, the scene that will own the foreign entities must reserve a slice of IDs at the moment of initialization (via RootEntity component).
