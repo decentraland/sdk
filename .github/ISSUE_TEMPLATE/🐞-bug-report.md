@@ -1,8 +1,8 @@
 ---
 name: "\U0001F41E Bug report"
 about: Please use this template to report issues with the SDK
-title: ''
-labels: bug
+title: '[BUG] Example title'
+labels: bug, need validation
 assignees: ''
 
 ---
