@@ -3,6 +3,3 @@ contact_links:
   - name: Documentation
     url: https://docs.decentraland.org/creator/
     about: Documentation for the SDK
-  - name: Suggestion
-    url: https://decentraland.canny.io/
-    about: Place for a feedback or new suggestions
